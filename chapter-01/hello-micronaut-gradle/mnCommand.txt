@@ -1,0 +1,1 @@
+mn create-app com-packtpub-micronaut-hello-micronaut-gradle --profile service --lang java --build gradle

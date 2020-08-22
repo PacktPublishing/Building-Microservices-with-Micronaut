@@ -1,0 +1,19 @@
+installation and hello-world
+
+https://www.opencodez.com/java/introduction-to-micronaut-framework.htm
+
+1. Download the Micronaut CLI binary from the Micronaut download page - https://micronaut.io/download.html. Binary could be found under download section on this page. Please select the latest release available for better support.
+2. Unzip the downloaded binary file into a folder on your system. Its better to keep this in a separate folder under a root directory.
+3. Create a new system variable MICRONAUT_HOME with above directory path. This variable should be added as a system variable under environment variables. 
+4. Furthermorw, update your windows PATH environment variable. You can add the path like : %MICRONAUT_HOME%\bin
+5. To test CLI is installed properly, opean a command prompt and hit mn --version. It should return intalled micronaut version. 
+
+Linux and MacOS CLI
+
+Postgres --
+https://www.postgresql.org/download/windows/
+superuser - username: postgres/password: postgres
+port: 5432
+master password - potgres
+
+

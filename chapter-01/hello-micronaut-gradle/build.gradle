@@ -1,0 +1,66 @@
+plugins {
+id "net.ltgt.apt-eclipse" version "0.21"
+id "com.github.johnrengelman.shadow" version "5.2.0"
+id "com.diffplug.gradle.spotless" version "3.27.0"
+}
+apply plugin:"application"
+sourceCompatibility='13'
+targetCompatibility='13'
+version "0.1"
+group "com.packtpub.micronaut"
+repositories {
+mavenCentral()
+	maven { url "https://jcenter.bintray.com" }
+}
+configurations {
+    // for dependencies that are needed for development only
+    developmentOnly 
+}
+dependencies {
+	annotationProcessor 'org.projectlombok:lombok:1.18.12'
+	annotationProcessor "io.micronaut:micronaut-inject-java"
+	annotationProcessor "io.micronaut:micronaut-validation"
+	annotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
+	compile 'com.google.googlejavaformat:google-java-format:1.7'
+	implementation "io.micronaut:micronaut-http-client"
+	implementation "io.micronaut:micronaut-http-server-netty"
+	implementation "io.micronaut:micronaut-inject"
+	implementation "io.micronaut:micronaut-runtime"
+	implementation "io.micronaut:micronaut-validation"
+	implementation "javax.annotation:javax.annotation-api"
+	implementation platform("io.micronaut:micronaut-bom:$micronautVersion")
+	implementation("io.micronaut.reactor:micronaut-reactor")
+	runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
+	testAnnotationProcessor "io.micronaut:micronaut-inject-java"
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+	testAnnotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
+	testCompile "io.micronaut.test:micronaut-test-junit5"
+	testCompile "org.junit.jupiter:junit-jupiter-api"
+	testCompileOnly 'org.projectlombok:lombok:1.18.12'
+	testRuntime "org.junit.jupiter:junit-jupiter-engine"
+ 	compileOnly 'org.projectlombok:lombok:1.18.12'
+}
+test.classpath += configurations.developmentOnly
+mainClassName = "com.packtpub.micronaut.hellomicronautgradle.Application"
+// use JUnit 5 platform
+test {
+    useJUnitPlatform()
+}
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
+    options.compilerArgs.add('-parameters')
+}
+shadowJar {
+    mergeServiceFiles()
+}
+tasks.withType(JavaExec) {
+    classpath += configurations.developmentOnly
+    jvmArgs('-XX:TieredStopAtLevel=1', '-Dcom.sun.management.jmxremote')
+   if (gradle.startParameter.continuous) {	
+	systemProperties(
+            'micronaut.io.watch.restart':'true',
+            'micronaut.io.watch.enabled':'true',
+            "micronaut.io.watch.paths":"src/main"
+        )
+    }
+}

@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: com.packtpub.micronaut.hellomicronautmaven
+---
+testFramework: junit
+sourceLanguage: java
