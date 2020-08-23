@@ -1,0 +1,8 @@
+sudo port sync
+
+sudo port install micronaut
+
+mn --version
+
+
+sudo port uninstall micronaut
