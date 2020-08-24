@@ -1,5 +1,0 @@
-micronaut:
-  application:
-    name: hello-micronaut-maven
-  server:
-    port: 8080
