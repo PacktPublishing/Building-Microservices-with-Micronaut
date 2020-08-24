@@ -1,4 +1,4 @@
-package com.packtpub.micronaut.hellomicronautmaven;
+package com.packtpub.micronaut.hellomicronautgradle.web;
 
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.client.RxHttpClient;
@@ -9,11 +9,12 @@ import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
 
+
 @MicronautTest
-class ApplicationTestResponse {
+class HelloControllerTest {
 
     @Inject
-    @Client("/")
+    @Client("/hello")
 
     RxHttpClient client;
 
@@ -24,7 +25,6 @@ class ApplicationTestResponse {
         String body = client.toBlocking().retrieve(request);
 
         Assertions.assertNotNull(body);
-        Assertions.assertEquals("Hello, PackT Micronaut!", body);
-
+        Assertions.assertEquals("Hello, Micronaut!", body);
     }
 }
