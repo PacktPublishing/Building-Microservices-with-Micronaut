@@ -1,0 +1,10 @@
+micronaut:
+  application:
+    name: Pet-Clinic
+
+datasources:
+  default:
+    url: "jdbc:postgresql://localhost:5432/postgres"
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
