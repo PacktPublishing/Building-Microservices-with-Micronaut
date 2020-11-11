@@ -6,6 +6,7 @@ import com.packtpub.micronaut.util.HeaderUtil;
 import com.packtpub.micronaut.util.PaginationUtil;
 import com.packtpub.micronaut.web.rest.errors.BadRequestAlertException;
 import io.micronaut.context.annotation.Value;
+import io.micronaut.core.version.annotation.Version;
 import io.micronaut.data.model.Page;
 import io.micronaut.data.model.Pageable;
 import io.micronaut.http.HttpRequest;
@@ -106,10 +107,24 @@ public class OwnerResource {
      * @return the {@link HttpResponse} with status {@code 200 (OK)} and with body the ownerDTO, or with status {@code 404 (Not Found)}.
      */
     @Get("/owners/{id}")
+    @Version("1")
     @ExecuteOn(TaskExecutors.IO)
     public Optional<OwnerDTO> getOwner(@PathVariable Long id) {
         log.debug("REST request to get Owner : {}", id);
-        
+        return ownerService.findOne(id);
+    }
+
+    /**
+     * {@code GET  /owners/:id} : get the "id" owner.
+     *
+     * @param id the id of the ownerDTO to retrieve.
+     * @return the {@link HttpResponse} with status {@code 200 (OK)} and with body the ownerDTO, or with status {@code 404 (Not Found)}.
+     */
+    @Version("2")
+    @Get("/owners/{id}")
+    @ExecuteOn(TaskExecutors.IO)
+    public Optional<OwnerDTO> getOwnerV2(@PathVariable Long id) {
+        log.debug("REST request to get Owner : {}", id);
         return ownerService.findOne(id);
     }
 

@@ -1,7 +1,19 @@
 micronaut:
   application:
     name: Pet-Owner
-
+  router:
+    versioning:
+      enabled: true
+      default-version: 1
+      parameter:
+        enabled: false
+        names: 'v,api-version'
+      header:
+        enabled: true
+        names:
+          - 'X-API-VERSION'
+          - 'Accept-Version'
+E
 datasources:
   default:
     url: "jdbc:postgresql://localhost:5432/postgres"
