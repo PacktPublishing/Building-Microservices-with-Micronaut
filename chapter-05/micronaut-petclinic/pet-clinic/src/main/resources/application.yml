@@ -1,0 +1,21 @@
+micronaut:
+  application:
+    name: Pet-Clinic
+  server:
+    port: 8082
+
+kafka:
+  bootstrap:
+    servers: localhost:9094
+
+endpoints:
+  all:
+    enabled: true
+    sensitive: false
+
+datasources:
+  default:
+    url: "jdbc:postgresql://localhost:5432/postgres"
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver

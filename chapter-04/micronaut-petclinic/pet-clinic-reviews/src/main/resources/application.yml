@@ -1,0 +1,25 @@
+micronaut:
+  application:
+    name: Pet-Clinic-Reviews
+
+  ssl:
+    enabled: true
+    key-store:
+      type: PKCS12
+      path: file:cert.p12
+      password: Pass@w0rd
+
+  security:
+    authentication: idtoken
+    oauth2:
+      clients:
+        okta:
+          client-secret: fmjiUhE_f_AN4A1d79abEI-teKVAmHVveVWoDOvN
+          client-id: 0oa38nmix1lzOxAdF5d6
+          openid:
+            issuer: https://dev-4962048.okta.com/oauth2/default
+
+mongodb:
+  uri: mongodb://mongodb:mongodb@localhost:27017/pet-clinic-reviews
+  databaseName: pet-clinic-reviews
+  collectionName: vet-reviews

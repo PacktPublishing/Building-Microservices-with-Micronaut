@@ -1,0 +1,61 @@
+micronaut:
+  application:
+    name: Pet-Owner
+  server:
+    port: 8081
+  router:
+    versioning:
+      enabled: true
+      default-version: 1
+      parameter:
+        enabled: false
+        names: 'v,api-version'
+      header:
+        enabled: true
+        names:
+          - 'X-API-VERSION'
+          - 'Accept-Version'
+  security:
+    enabled: true
+    # Session auth
+    authentication: session
+    session:
+      enabled: true
+    # Auth end-point
+    endpoints:
+      login:
+        enabled: true
+      logout:
+        enabled: true
+    # Intercept rules
+    intercept-url-map:
+      - pattern: /api/visits
+        access: isAnonymous()
+
+datasources:
+  default:
+    url: "jdbc:postgresql://localhost:5432/postgres"
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+
+jpa:
+  default:
+    entity-scan:
+      packages:
+        - com.packtpub.micronaut.domain
+    properties:
+      hibernate:
+        show_sql: false
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        enable_lazy_load_no_trans: true
+
+identity-store:
+  users:
+    alice: alice@1
+    bob: bob@2
+    charlie: charlie@3
+  roles:
+    alice: ADMIN
+    bob: VIEW
+    charlie: VIEW

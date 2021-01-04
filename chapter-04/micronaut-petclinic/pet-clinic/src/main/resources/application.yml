@@ -1,0 +1,33 @@
+micronaut:
+  application:
+    name: Pet-Clinic
+  server:
+    port: 8082
+  security:
+    authentication: idtoken
+    endpoints:
+      login:
+        enabled: true
+    redirect:
+      login-success: /secure/anonymous
+    token:
+      jwt:
+        enabled: true
+        signatures.jwks.keycloak:
+          url: http://localhost:8888/auth/realms/master/protocol/openid-connect/certs
+    oauth2.clients.keycloak:
+      grant-type: password
+      client-id: pet-clinic
+      client-secret: 6ee6d951-4f0b-4ad7-ab1a-9f9bcf4a076e
+      authorization:
+        url: http://localhost:8888/auth/realms/master/protocol/openid-connect/auth
+      token:
+        url: http://localhost:8888/auth/realms/master/protocol/openid-connect/token
+        auth-method: client_secret_post
+
+datasources:
+  default:
+    url: "jdbc:postgresql://localhost:5432/postgres"
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
