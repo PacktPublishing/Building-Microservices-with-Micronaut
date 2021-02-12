@@ -13,7 +13,7 @@ micronaut:
         names:
           - 'X-API-VERSION'
           - 'Accept-Version'
-E
+
 datasources:
   default:
     url: "jdbc:postgresql://localhost:5432/postgres"
