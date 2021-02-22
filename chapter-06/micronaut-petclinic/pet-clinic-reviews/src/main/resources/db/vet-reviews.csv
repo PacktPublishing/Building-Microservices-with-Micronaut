@@ -1,0 +1,6 @@
+"_id",rating,comment,vetId,dateAdded,reviewId
+5f485523d0cfa84e00963fe4,4.0,Good vet in the area,1.0,2020-08-28T00:51:47.922Z,0ee19b1c-ec8e-11ea-adc1-0242ac120002
+5f485601d0cfa84e00963ffe,4.0,Very good vet,2.0,2020-08-28T00:55:29.079Z,0ee19b1c-ec8e-11ea-adc1-0242ac120003
+5f4d5e0f6625ef4a74b410cb,2.5,Bad experience with this vet,1.0,2020-08-31T20:31:11.829Z,0ee19b1c-ec8e-11ea-adc1-0242ac120004
+5f4d5e146625ef4a74b410cc,2.5,Bad experience with this vet,2.0,2020-08-31T20:31:16.272Z,0ee19b1c-ec8e-11ea-adc1-0242ac120005
+5f4d5e186625ef4a74b410cd,2.5,Bad experience with this vet,3.0,2020-08-31T20:31:20.261Z,0ee19b1c-ec8e-11ea-adc1-0242ac120006
