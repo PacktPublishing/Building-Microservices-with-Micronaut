@@ -71,4 +71,12 @@ public class VetRepositoryImpl implements VetRepository {
             sqlSession.commit();
         }
     }
+
+    @Override
+    public void updateVetAverageRating(Long vetId, Double averageRating, Long ratingCount) throws Exception {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+            getVetRepository(sqlSession).updateVetAverageRating(vetId, averageRating, ratingCount);
+            sqlSession.commit();
+        }
+    }
 }
