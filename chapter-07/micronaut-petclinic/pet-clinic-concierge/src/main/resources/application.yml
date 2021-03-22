@@ -1,0 +1,20 @@
+micronaut:
+  application:
+    name: pet-clinic-concierge
+  config-client:
+    enabled: true
+
+consul:
+  client:
+    registration:
+      enabled: true
+    config:
+      defaultZone: "${CONSUL_HOST:localhost}:${CONSUL_PORT:8500}"
+
+#hystrix:
+#  stream:
+#    enabled: false
+#
+#ribbon:
+#  VipAddress: test
+#  ServerListRefreshInterval: 2000

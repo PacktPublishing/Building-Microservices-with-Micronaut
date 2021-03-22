@@ -1,0 +1,24 @@
+micronaut:
+  application:
+    name: pet-clinic-reviews
+  server:
+    port: -1
+
+kafka:
+  bootstrap:
+    servers: localhost:9094
+
+endpoints:
+  all:
+    enabled: true
+    sensitive: false
+
+mongodb:
+  uri: mongodb://mongodb:mongodb@localhost:27017/pet-clinic-reviews
+  databaseName: pet-clinic-reviews
+  collectionName: vet-reviews
+
+consul:
+  client:
+    registration:
+      enabled: true
