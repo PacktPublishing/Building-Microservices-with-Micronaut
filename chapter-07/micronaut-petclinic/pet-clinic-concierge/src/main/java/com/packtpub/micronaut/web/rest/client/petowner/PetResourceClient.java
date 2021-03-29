@@ -6,11 +6,13 @@ import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
 import io.micronaut.http.client.annotation.Client;
+import io.micronaut.retry.annotation.CircuitBreaker;
 
 import java.util.List;
 import java.util.Optional;
 
 @Client(id = "pet-owner")
+@CircuitBreaker(delay = "5s", attempts = "5", multiplier = "3", reset = "300s")
 public interface PetResourceClient {
 
     @Post("/api/pets")
@@ -26,5 +28,5 @@ public interface PetResourceClient {
     Optional<PetDTO> getPet(@PathVariable Long id);
 
     @Delete("/api/pets/{id}")
-    public HttpResponse deletePet(@PathVariable Long id);
+    HttpResponse deletePet(@PathVariable Long id);
 }
