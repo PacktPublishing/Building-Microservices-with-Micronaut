@@ -1,0 +1,18 @@
+mvn compile jib:dockerBuild
+
+docker images | grep pet-owner
+
+consul: http://localhost:8500/ui/dc1/services
+kafka: http://localhost:9100/
+
+
+pet-owner: http://localhost:32581/api/owners
+pet-clinic: http://localhost:32582/api/vets
+pet-clinic-reviews: http://localhost:32583/api/vet-reviews
+pet-clinic-concierge: http://localhost:32584/api/owners
+
+
+docker stack deploy --compose-file docker-compose.yml micronaut-petclinic-stack
+
+kubectl - https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/
+minikube - https://minikube.sigs.k8s.io/docs/start/
