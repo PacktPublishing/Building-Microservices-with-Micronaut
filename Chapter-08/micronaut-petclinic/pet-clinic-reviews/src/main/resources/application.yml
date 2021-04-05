@@ -1,0 +1,25 @@
+micronaut:
+  application:
+    name: pet-clinic-reviews
+  server:
+    port: 32583
+
+kafka:
+  bootstrap:
+    servers: kafka:9092
+
+mongodb:
+  uri: mongodb://mongodb:mongodb@host.docker.internal:27017/pet-clinic-reviews
+  databaseName: pet-clinic-reviews
+  collectionName: vet-reviews
+
+consul:
+  client:
+    default-zone: "consul:8500"
+    registration:
+      enabled: true
+
+endpoints:
+  all:
+    enabled: true
+    sensitive: false

@@ -1,0 +1,14 @@
+micronaut:
+  application:
+    name: pet-clinic-concierge
+  server:
+    port: 32584
+  config-client:
+    enabled: true
+
+consul:
+  client:
+    default-zone: "consul:8500"
+    registration:
+      enabled: true
+
