@@ -1,0 +1,73 @@
+version: '3.2'
+
+services:
+
+  elasticsearch:
+    image: elasticsearch:$ELK_VERSION
+    volumes:
+      - elasticsearch:/usr/share/elasticsearch/data
+    environment:
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+      ELASTIC_PASSWORD: $ELASTIC_PASSWORD
+      # Use single node discovery in order to disable production mode and avoid bootstrap checks
+      # see https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
+      discovery.type: single-node
+      # X-Pack security needs to be enabled for Elasticsearch to actually authenticate requests
+      xpack.security.enabled: "true"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    healthcheck:
+      test: "wget -q -O - http://$ELASTIC_USER:$ELASTIC_PASSWORD@localhost:9200/_cat/health"
+      interval: 1s
+      timeout: 30s
+      retries: 300
+    networks:
+      - internal
+    restart: unless-stopped
+
+  # https://www.elastic.co/guide/en/logstash/current/docker-config.html
+  logstash:
+    image: logstash:$ELK_VERSION
+    ports:
+      - "5000:5000"
+      - "9600:9600"
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+      ELASTIC_USER: $ELASTIC_USER
+      ELASTIC_PASSWORD: $ELASTIC_PASSWORD
+      XPACK_MONITORING_ELASTICSEARCH_USERNAME: $ELASTIC_USER
+      XPACK_MONITORING_ELASTICSEARCH_PASSWORD: $ELASTIC_PASSWORD
+      XPACK_MONITORING_ELASTICSEARCH_HOSTS: "elasticsearch:9200"
+      XPACK_MONITORING_ENABLED: "true"
+    volumes:
+      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
+    networks:
+      - internal
+    restart: unless-stopped
+    depends_on:
+      - elasticsearch
+
+  # https://www.elastic.co/guide/en/kibana/current/docker.html
+  kibana:
+    image: kibana:${ELK_VERSION}
+    environment:
+      ELASTICSEARCH_USERNAME: $ELASTIC_USER
+      ELASTICSEARCH_PASSWORD: $ELASTIC_PASSWORD
+      # Because Elasticsearch is running in a containerized environment
+      # (setting this to false will result in CPU stats not being correct in the Monitoring UI):
+      XPACK_MONITORING_UI_CONTAINER_ELASTICSEARCH_ENABLED: "true"
+    ports:
+      - "5601:5601"
+    networks:
+      - internal
+    restart: unless-stopped
+    depends_on:
+      - elasticsearch
+      - logstash
+
+networks:
+  internal:
+
+volumes:
+  elasticsearch:

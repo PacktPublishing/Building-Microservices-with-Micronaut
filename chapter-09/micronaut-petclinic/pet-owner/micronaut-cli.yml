@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.packtpub.micronaut
+testFramework: junit
+sourceLanguage: java
+buildTool: maven
+features: [annotation-api, app-name, data, data-jpa, docker, file-watch, hibernate-jpa, http-client, java, java-application, jdbc-hikari, junit, logback, maven, netty-server, postgres, readme, shade, testcontainers, yaml]
