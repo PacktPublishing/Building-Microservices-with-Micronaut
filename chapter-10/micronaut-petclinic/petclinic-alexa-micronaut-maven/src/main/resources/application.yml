@@ -1,0 +1,8 @@
+alexa:
+  skills:
+    myskill:
+      skill-id 'amzn1.ask.skill.de392a0b-0a95-451a-a615-dcba1f9a23c6'
+
+micronaut:
+  application:
+    name: petclinic-alexa-micronaut-maven
