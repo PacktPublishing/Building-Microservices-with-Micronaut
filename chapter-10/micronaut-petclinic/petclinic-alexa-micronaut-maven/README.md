@@ -7,6 +7,7 @@ com.packtpub.main.PetClinicStreamHandler
 As handler specify io.micronaut.function.aws.alexa.AlexaFunction. You don’t need to create a class which extends PetClinicStreamHandler, AlexaFunction takes care of adding request handlers interceptors etc.
 
 com.packtpub.main.AlexaFunction
+io.micronaut.function.aws.alexa.AlexaFunction
 
 ## Type 3
 io.micronaut.function.aws.proxy.MicronautLambdaHandler
