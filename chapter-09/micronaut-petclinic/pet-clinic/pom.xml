@@ -186,6 +186,19 @@
       <artifactId>logstash-logback-encoder</artifactId>
       <version>6.3</version>
     </dependency>
+    <!-- Micrometer -->
+    <dependency>
+      <groupId>io.micronaut.micrometer</groupId>
+      <artifactId>micronaut-micrometer-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.micronaut.micrometer</groupId>
+      <artifactId>micronaut-micrometer-registry-prometheus</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.micronaut</groupId>
+      <artifactId>micronaut-management</artifactId>
+    </dependency>
   </dependencies>
 
   <build>

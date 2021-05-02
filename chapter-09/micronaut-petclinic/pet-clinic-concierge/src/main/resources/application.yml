@@ -5,6 +5,19 @@ micronaut:
     port: 32584
   config-client:
     enabled: true
+  metrics:
+    enabled: true
+    export:
+      prometheus:
+        enabled: true
+        step: PT1M
+        descriptions: true
+
+endpoints:
+  metrics:
+    enabled: false
+  prometheus:
+    enabled: false
 
 consul:
   client:

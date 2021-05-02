@@ -3,6 +3,19 @@ micronaut:
     name: pet-clinic
   server:
     port: 32582
+  metrics:
+    enabled: true
+    export:
+      prometheus:
+        enabled: true
+        step: PT1M
+        descriptions: true
+
+endpoints:
+  metrics:
+    enabled: false
+  prometheus:
+    enabled: false
 
 kafka:
   bootstrap:
@@ -21,11 +34,6 @@ consul:
     default-zone: "consul:8500"
     registration:
       enabled: true
-
-endpoints:
-  all:
-    enabled: true
-    sensitive: false
 
 tracing:
   zipkin:
