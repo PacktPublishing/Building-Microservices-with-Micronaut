@@ -1,0 +1,44 @@
+micronaut:
+  application:
+    name: pet-clinic
+  server:
+    port: 32582
+  metrics:
+    enabled: true
+    export:
+      prometheus:
+        enabled: true
+        step: PT1M
+        descriptions: true
+
+endpoints:
+  metrics:
+    enabled: false
+  prometheus:
+    enabled: false
+
+kafka:
+  bootstrap:
+    servers: kafka:9092
+
+datasources:
+  default:
+    url: "jdbc:postgresql://host.docker.internal:5432/postgres"
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+
+
+consul:
+  client:
+    default-zone: "consul:8500"
+    registration:
+      enabled: true
+
+tracing:
+  zipkin:
+    http:
+      url: http://host.docker.internal:9411
+    enabled: true
+    sampler:
+      probability: 1

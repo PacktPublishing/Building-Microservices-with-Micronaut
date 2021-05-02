@@ -1,0 +1,40 @@
+{ 
+    "_id" : ObjectId("5f485523d0cfa84e00963fe4"), 
+    "reviewId" : "0ee19b1c-ec8e-11ea-adc1-0242ac120002", 
+    "rating" : 4.0, 
+    "comment" : "Good vet in the area", 
+    "vetId" : 1.0, 
+    "dateAdded" : ISODate("2020-08-28T00:51:47.922+0000")
+}
+{ 
+    "_id" : ObjectId("5f485601d0cfa84e00963ffe"), 
+    "rating" : 4.0, 
+    "comment" : "Very good vet", 
+    "vetId" : 2.0, 
+    "dateAdded" : ISODate("2020-08-28T00:55:29.079+0000"), 
+    "reviewId" : "0ee19b1c-ec8e-11ea-adc1-0242ac120003"
+}
+{ 
+    "_id" : ObjectId("5f4d5e0f6625ef4a74b410cb"), 
+    "rating" : 2.5, 
+    "comment" : "Bad experience with this vet", 
+    "vetId" : 1.0, 
+    "dateAdded" : ISODate("2020-08-31T20:31:11.829+0000"), 
+    "reviewId" : "0ee19b1c-ec8e-11ea-adc1-0242ac120004"
+}
+{ 
+    "_id" : ObjectId("5f4d5e146625ef4a74b410cc"), 
+    "rating" : 2.5, 
+    "comment" : "Bad experience with this vet", 
+    "vetId" : 2.0, 
+    "dateAdded" : ISODate("2020-08-31T20:31:16.272+0000"), 
+    "reviewId" : "0ee19b1c-ec8e-11ea-adc1-0242ac120005"
+}
+{ 
+    "_id" : ObjectId("5f4d5e186625ef4a74b410cd"), 
+    "rating" : 2.5, 
+    "comment" : "Bad experience with this vet", 
+    "vetId" : 3.0, 
+    "dateAdded" : ISODate("2020-08-31T20:31:20.261+0000"), 
+    "reviewId" : "0ee19b1c-ec8e-11ea-adc1-0242ac120006"
+}

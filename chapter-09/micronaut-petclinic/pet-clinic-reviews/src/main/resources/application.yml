@@ -1,0 +1,41 @@
+micronaut:
+  application:
+    name: pet-clinic-reviews
+  server:
+    port: 32583
+  metrics:
+    enabled: true
+    export:
+      prometheus:
+        enabled: true
+        step: PT1M
+        descriptions: true
+
+endpoints:
+  metrics:
+    enabled: false
+  prometheus:
+    enabled: false
+
+kafka:
+  bootstrap:
+    servers: kafka:9092
+
+mongodb:
+  uri: mongodb://mongodb:mongodb@host.docker.internal:27017/pet-clinic-reviews
+  databaseName: pet-clinic-reviews
+  collectionName: vet-reviews
+
+consul:
+  client:
+    default-zone: "consul:8500"
+    registration:
+      enabled: true
+
+tracing:
+  zipkin:
+    http:
+      url: http://host.docker.internal:9411
+    enabled: true
+    sampler:
+      probability: 1
