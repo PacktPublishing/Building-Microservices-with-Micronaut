@@ -1,1 +1,0 @@
-mn create-app com-packtpub-micronaut-hello-micronaut-maven --profile service --lang java --build maven
