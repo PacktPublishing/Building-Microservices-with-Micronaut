@@ -25,8 +25,11 @@
       <id>jcenter.bintray.com</id>
       <url>https://jcenter.bintray.com</url>
     </repository>
+    <repository>
+      <id>central</id>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
   </repositories>
-
 
   <dependencies>
     <dependency>
@@ -103,14 +106,17 @@
     <dependency>
       <groupId>io.micronaut.security</groupId>
       <artifactId>micronaut-security</artifactId>
+	  <version>2.0.1</version>
     </dependency>
     <dependency>
       <groupId>io.micronaut.security</groupId>
       <artifactId>micronaut-security-jwt</artifactId>
+	  <version>2.0.1</version>
     </dependency>
     <dependency>
       <groupId>io.micronaut.security</groupId>
       <artifactId>micronaut-security-oauth2</artifactId>
+	  <version>2.0.1</version>
     </dependency>
   </dependencies>
 
