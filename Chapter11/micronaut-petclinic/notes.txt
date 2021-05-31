@@ -1,0 +1,44 @@
+ALWAYS CHECK THE TERMINAL -- SOMETIMES IT POINTS TO PREVIOUSLY OPENED PROJECT E.G. I WAS WORKIGN ON CHAPTER-9 PET-OWNER PROEJCT BUT IN TERMINAL IT PICKET CHAPTER-8 PET-OWNER
+
+mvn clean compile jib:dockerBuild
+
+docker images | grep pet-owner
+
+consul: http://localhost:8500/ui/dc1/services
+kafka: http://localhost:9100/
+
+
+pet-owner: http://localhost:32581/api/owners
+pet-clinic: http://localhost:32582/api/vets
+pet-clinic-reviews: http://localhost:32583/api/vet-reviews
+pet-clinic-concierge: http://localhost:32584/api/owners
+
+
+prometheus -  http://localhost:32581/prometheus
+metrics - http://localhost:32581/metrics
+
+curl -v "POST" "http://localhost:32581/login" -H "Content-Type: application/json" -d '{"username":"alice","password":"alice"}'
+
+curl -L -X POST 'http://localhost:8888/auth/realms/master/protocol/openid-connect/token' \
+-H 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'client_id=pet-clinic' \
+--data-urlencode 'grant_type=password' \
+--data-urlencode 'client_secret=7d888c03-56e2-4f6d-980f-900a4407168b' \
+--data-urlencode 'scope=openid' \
+--data-urlencode 'username=alice' \
+--data-urlencode 'password=alice'
+
+
+
+docker stack deploy --compose-file docker-compose.yml micronaut-petclinic-stack
+
+
+zipkin---
+docker run -d -it --name zipkin -p 9411:9411 openzipkin/zipkin
+
+
+elk---
+docker run -d -it --name es -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.12.0
+docker run -d -it --name kibana --link es:elasticsearch -p 5601:5601 kibana:7.12.0
+docker run -d -it --name logstash -p 5000:5000 logstash:7.12.0 -e 'input { tcp { port => 5000 codec => "json" } } output { elasticsearch { hosts => ["193.165.88.100"] index => "micronaut-%{serviceName}"} }'
+

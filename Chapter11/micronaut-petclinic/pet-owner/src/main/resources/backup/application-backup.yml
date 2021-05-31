@@ -1,0 +1,26 @@
+micronaut:
+  application:
+    name: pet-owner
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+
+datasources:
+  default:
+    url: "jdbc:postgresql://localhost:5432/postgres"
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+
+jpa:
+  default:
+    entity-scan:
+      packages:
+        - com.packtpub.micronaut.domain
+    properties:
+      hibernate:
+        show_sql: false
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        enable_lazy_load_no_trans: true

@@ -18,7 +18,7 @@ micronaut:
     oauth2.clients.keycloak:
       grant-type: password
       client-id: pet-clinic
-      client-secret: 6ee6d951-4f0b-4ad7-ab1a-9f9bcf4a076e
+      client-secret: 7d888c03-56e2-4f6d-980f-900a4407168b
       authorization:
         url: http://localhost:8888/auth/realms/master/protocol/openid-connect/auth
       token:

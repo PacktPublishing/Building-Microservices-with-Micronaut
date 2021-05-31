@@ -1,0 +1,29 @@
+<configuration>
+
+    <property scope="context" name="app_name" value="pet-owner"/>
+    <property scope="context" name="app_port" value="32581"/>
+
+    <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <param name="Encoding" value="UTF-8"/>
+        <remoteHost>host.docker.internal</remoteHost>
+        <port>5000</port>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+    </appender>
+
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>false</withJansi>
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%cyan(%d{HH:mm:ss.SSS}) %gray([%thread]) %highlight(%-5level) %magenta(%logger{36}) - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <logger name="io.micronaut.tracing" level="TRACE"/>
+
+    <root level="DEBUG">
+        <appender-ref ref="logstash"/>
+        <appender-ref ref="stdout"/>
+    </root>
+</configuration>
