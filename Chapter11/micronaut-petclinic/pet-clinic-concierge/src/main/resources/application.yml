@@ -26,6 +26,7 @@ micronaut:
           enabled: true
           header-name: "Cookie"
           prefix: "JWT="
+        service-id-regex: pet-owner|pet-clinic|pet-clinic-reviews
       jwt:
         enabled: true
         signatures.jwks.keycloak:
