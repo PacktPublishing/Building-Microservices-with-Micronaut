@@ -31,8 +31,6 @@
     </repository>
   </repositories>
 
-  </repositories>
-
   <dependencyManagement>
     <dependencies>
       <dependency>
