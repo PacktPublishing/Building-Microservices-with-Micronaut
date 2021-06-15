@@ -11,7 +11,7 @@ services:
       - ALLOW_ANONYMOUS_LOGIN=yes
 
   kafka:
-    name: kafka
+    container_name: kafka
     image: bitnami/kafka:2-debian-10
     ports:
       - 9094:9094
