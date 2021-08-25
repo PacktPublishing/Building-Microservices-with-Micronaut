@@ -68,7 +68,7 @@ We also provide a PDF file that has color images of the screenshots/diagrams use
 
 * Microservices with Spring Boot and Spring Cloud - Second Edition [[Packt]](https://www.packtpub.com/product/microservices-with-spring-boot-and-spring-cloud-second-edition/9781801072977?utm_source=github&utm_medium=repository&utm_campaign=9781801072977) [[Amazon]](https://www.amazon.com/dp/1801072973)
 
-## Get to Know the Author
+## Get to Know the Authors
 **Nirmal Singh**
 is entrepreneurial-spirited and a renaissance mind technology leader, with 10+ years of broad and unique cross-domain experience in handling complex inter-disciplinary requirements and leading high performing software development teams and delivering robust software solutions. He has worked in various techno-functional roles, serving health-tech, fin-tech, retail and social commerce verticals in both the product and consulting engagements. He is currently leading a product engineering group at CGI to re-engineer a classic mission critical wealth application.
 
