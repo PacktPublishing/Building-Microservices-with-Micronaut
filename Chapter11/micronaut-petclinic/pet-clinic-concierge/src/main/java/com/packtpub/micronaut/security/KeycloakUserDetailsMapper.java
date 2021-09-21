@@ -1,6 +1,5 @@
 package com.packtpub.micronaut.security;
 
-import com.packtpub.micronaut.Application;
 import io.micronaut.context.annotation.Property;
 import io.micronaut.core.async.publisher.Publishers;
 import io.micronaut.http.HttpRequest;
@@ -29,7 +28,7 @@ import java.util.Map;
 @Singleton
 public class KeycloakUserDetailsMapper implements OauthUserDetailsMapper {
 
-    private static final Logger log = LoggerFactory.getLogger(Application.class);
+    private static final Logger log = LoggerFactory.getLogger(KeycloakUserDetailsMapper.class);
 
     @Property(name = "micronaut.security.oauth2.clients.keycloak.client-id")
     private String clientId;
