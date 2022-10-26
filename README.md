@@ -74,3 +74,7 @@ is entrepreneurial-spirited and a renaissance mind technology leader, with 10+ y
 
 **Mohammed Zackria Arshid**
 is an Award Winning Speaker, Technologist, and Leader. He has 15+ Years of Experience in IT Software Product Development, BigData, Machine Learning, Mobile Apps, Blockchain, Payments, Agile Transformation, and Enterprise Architecture. He has worked in 13 countries across Europe, North America and Asia. He has done vaious certifications in Oracle Certified Professional, Java SE6 Programmer, Oracle PL/SQL Developer Certified Associate, IBM Certified Database Associate- DB2 Fundamentals, IBM Certified Academic Associate and IBM Certified Associate Developer- RAD for WebSphere V6.
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781800564237">https://packt.link/free-ebook/9781800564237 </a> </p>
